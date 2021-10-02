@@ -1,0 +1,80 @@
+@font-face {
+    font-family:Franklin;
+    src: url(fonts/LibreFranklin-Regular.ttf);
+}
+@font-face {
+    font-family: Postoni;
+    src: url(fonts/Postoni.ttf)
+}
+body{
+    line-height: 1.6;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.25rem;
+    color:#2a2a2a;
+    padding-bottom:24px;
+}
+h1,h2,h3,h4{
+    margin:0;
+    font-family: Franklin,arial,sans-serif;
+ }
+h1{   
+    width: 100%;
+    line-height: 30px; 
+    margin-top:0;
+    font-size: 2rem;
+    font-weight: bold;
+}
+h2{
+    line-height:25px;
+    font-size:1.5rem;
+    font-weight:700;
+}
+p{
+    margin-top:0.5rem;
+    line-height: 25px;
+    font-weight: 300;
+    font-family: Franklin,arial,sans-serif;
+    color:#666;
+}
+main{
+    margin-top: 3rem;
+}
+.topnews{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    flex-wrap: wrap;
+}
+.mainnews{
+    width:50%;
+    margin:1rem;
+}
+.aside {
+    width:30%;
+    margin:1rem;
+}
+.imgcontainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+main img{
+    margin-top: 1rem;
+    padding-bottom: 0.2rem;
+    border-bottom: 1px solid lightgray;
+}
+.news{
+    padding:1rem;
+}
+.othernews{
+    display:flex;
+    justify-content: center;
+    margin: auto;
+    flex-wrap: wrap;
+}
+.othernews .news{
+    width: 20%;
+}
+.othernews .news h2{
+    font-size: 1rem;
+}
