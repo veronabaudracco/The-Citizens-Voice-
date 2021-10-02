@@ -9,6 +9,11 @@ header{
     padding-bottom: 30px;
     border-bottom:2px solid black;
     border-style: solid;
+    display: flex;
+    justify-content: space-between;
+    text-align:center;
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 ul{
     display: flex;
@@ -44,6 +49,15 @@ a:hover{
     justify-content: center;
     align-items: center;
 }
-.buttonmenu {
+.material-icons{
+    border:none;
+}
+button{
     background-color: white;
+    text-align: center;
+}
+.hambmenu,.search{
+    display: flex;
+    align-items: center;
+
 }

@@ -1,0 +1,26 @@
+footer{
+    background-color: black;
+    height: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+footer p{
+    color: white;
+    font-weight: 900;
+}
+footer a{
+    text-decoration: none; 
+    color: white;
+    font-family: Franklin,arial,sans-serif;
+    font-weight: bold;
+}
+footer ul{
+    margin-top: 2rem;
+}
+.copyright{
+    font-family: monospace;
+    font-weight: 700;
+    font-size: small;
+}
