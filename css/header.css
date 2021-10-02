@@ -29,7 +29,7 @@ li{
     justify-content: center;
     border-right: 2px solid white;
 }
-a {
+header,nav a {
     text-decoration: none; 
     color: white;
     font-family: Franklin,arial,sans-serif;
@@ -43,4 +43,7 @@ a:hover{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.buttonmenu {
+    background-color: white;
 }
