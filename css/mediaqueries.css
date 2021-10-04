@@ -18,7 +18,8 @@
     .aside .news{
         margin-top: 2rem;
         margin-left: 0;
-    } 
+    }
+} 
 @media screen and (min-width:480px)
 {
     .hambmenu,.search{
