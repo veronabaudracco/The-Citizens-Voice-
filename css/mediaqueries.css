@@ -2,13 +2,23 @@
     nav{
         display:none;
     }
+    main{
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
     header{
         height:30px;
     }
     .logo img{
         width: 50%;
     }
-}
+    .aside{
+        margin-left:0;
+    }
+    .aside .news{
+        margin-top: 2rem;
+        margin-left: 0;
+    } 
 @media screen and (min-width:480px)
 {
     .hambmenu,.search{
@@ -17,4 +27,4 @@
     header{
         justify-content: center;
     }
-}
+}    
