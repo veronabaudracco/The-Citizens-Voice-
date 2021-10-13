@@ -6,31 +6,31 @@
     font-family: Postoni;
     src: url(fonts/Postoni.ttf)
 }
-header{
+header {
    background-color: white;
-   color:black;
+   color: black;
    min-height: 70px;
    padding-bottom: 30px;
-   border-bottom:2px solid black;
+   border-bottom: 2px solid black;
    border-style: solid;
    display: flex;
    justify-content: space-between;
-   text-align:center;
+   text-align: center;
    padding-left: 2rem;
    padding-right: 2rem;
 }
-ul{
+ul {
    display: flex;
-   width:100%;
+   width: 100%;
    height: 1.5rem;
-   overflow:hidden;
+   overflow: hidden;
    text-transform: uppercase;
    font-size: 14px;
    background-color: black;
    color: white;   
 }
-li{
-   flex:auto;
+li {
+   flex: auto;
    text-align: center;
    justify-content: center;
    border-right: 2px solid white;
@@ -41,103 +41,101 @@ header,nav a {
    font-family: Franklin,arial,sans-serif;
    font-weight: bold;
 }
-a:hover{
+a:hover {
    color: gray;
 }
-.logo{
+.logo {
    margin-top: 1rem;
    display: flex;
    justify-content: center;
    align-items: center;
 }
-.material-icons{
-   border:none;
+.material-icons {
+   border: none;
    vertical-align: middle !important;
    padding-top: 20px;
    background-color: transparent;
 }
-button{
+button {
    background-color: white;
    text-align: center;
 }
-.hambmenu,.search{
+.hambmenu,.search {
    display: flex;
    align-items: center;
 }
-body{
+body {
     line-height: 1.6;
     font-family: Georgia, 'Times New Roman', serif;
     font-size: 1.25rem;
-    color:#2a2a2a;
+    color: #2a2a2a;
 }
-h1,h2,h3,h4{
-    margin:0;
+h1,h2,h3,h4 {
+    margin: 0;
     font-family: Franklin,arial,sans-serif;
  }
-h1{   
-    width: 100%;
+h1 {   
     line-height: 30px; 
-    margin-top:0;
+    margin-top: 0;
     font-size: 2rem;
     font-weight: bold;
 }
-h2{
-    line-height:25px;
-    font-size:1.2rem;
-    font-weight:700;
+h2 {
+    line-height: 25px;
+    font-size: 1.2rem;
+    font-weight: 700;
 }
-p{
-    margin-top:1rem;
+p {
+    margin-top: 1rem;
     line-height: 25px;
     font-weight: 300;
     font-family: Franklin,arial,sans-serif;
-    color:#666;
+    color: #666;
 }
-main{
+main {
     margin-top: 3rem;
-    margin-bottom: 3rem;}
-.topnews{
+    margin-bottom: 3rem;
+}
+.topnews {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin:1rem;
+    margin: 1rem;
 }
-.mainnews{
-    min-width: 200px;
-    max-width:800px;
+.mainnews {
+    flex: 3 1 500px;
 }
 .aside {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-width: 200px;
-    max-width:300px;
+    flex: 1 1 250px;
+    margin: 0 1rem;
+
 }
-.imgcontainer{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-main img{
+main img {
     margin-top: 1rem;
     padding-bottom: 0.2rem;
     border-bottom: 1px solid lightgray;
+    width: 100%;
 }
-.othernews{
-    display:flex;
+.othernews {
+    display: flex;
     justify-content: space-around;
-    margin-top:2rem;
+    margin-top: 2rem;
     flex-wrap: wrap;
+
 }
-.othernews .news{
-    min-width:200px;
-    max-width:220px;
+.othernews .news {
+    width: 20%;
+    flex: 1 1 250px;
+    margin: 0 1rem;
 }
-.othernews a{
+.othernews a {
     font-size: 14px;
     line-height: 16px;
 }
-main h1 a{
+main h1 a {
     text-decoration: none;
     color:black;
     width: 100%;
@@ -146,31 +144,31 @@ main h1 a{
     font-size: 2rem;
     font-weight: bold;
 }
-main h2 a{
+main h2 a {
     text-decoration: none;
     color:black;
     line-height:25px;
     font-size:1.2rem;
     font-weight:700;
 }
-footer{
+footer {
     background-color: black;
     height: 100%; 
     width: 100%;
 }
-footer p{
+footer p {
     color: white;
     font-weight: 900;
     margin-left: 0.5rem; 
     padding: 1rem;
 }
-footer a{
+footer a {
     text-decoration: none; 
     color: white;
     font-family: Franklin,arial,sans-serif;
     font-weight: bold;
 }
-footer ul .terms{
+footer ul .terms {
     margin:0;
     padding: 0; 
     margin-top: 2rem;
@@ -180,10 +178,7 @@ footer ul .terms{
     min-width: 480px; 
     font-size:14px;
 }
-footer li{
-    flex:auto;
-}
-.copyright{
+.copyright {
     font-family: monospace;
     font-weight: 700;
     font-size: small;

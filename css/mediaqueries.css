@@ -1,35 +1,35 @@
 @media screen and (max-width:480px){
-    nav{
-        display:none;
+    nav {
+        display: none;
     }
-    main{
+    main {
         margin-left: 1rem;
         margin-right: 1rem;
     }
-    header{
-        height:30px;
+    header {
+        height: 30px;
     }
-    .logo img{
+    .logo img {
         width: 50%;
     }
-    .aside{
-        margin-left:0;
+    .aside {
+        margin-left: 0;
     }
-    .aside .news{
+    .aside .news {
         margin-top: 2rem;
         margin-left: 0;
     }
-    .othernews .news{
-        margin-top:1rem;
+    .othernews .news {
+        margin-top: 1rem;
         max-width: 80%;
    }
 } 
 @media screen and (min-width:480px)
 {
-    .hambmenu,.search{
-        display:none;
+    .hambmenu,.search {
+        display: none;
     }
-    header{
+    header {
         justify-content: center;
     }
 }    
