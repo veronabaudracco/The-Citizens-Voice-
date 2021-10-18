@@ -1,10 +1,10 @@
 @font-face {
-    font-family:Franklin;
-    src: url(fonts/LibreFranklin-Regular.ttf);
+    font-family: Franklin;
+    src: url(fonts/);
 }
 @font-face {
     font-family: Postoni;
-    src: url(fonts/Postoni.ttf)
+    src: url(fonts/Postoni.ttf);
 }
 header {
    background-color: white;
@@ -66,7 +66,7 @@ button {
 }
 body {
     line-height: 1.6;
-    font-family: Georgia, 'Times New Roman', serif;
+    font-family: Franklin,arial,sans-serif;
     font-size: 1.25rem;
     color: #2a2a2a;
 }
@@ -182,4 +182,73 @@ footer ul .terms {
     font-family: monospace;
     font-weight: 700;
     font-size: small;
+}
+.subscriptionTitle {
+    text-align: center;
+}
+.subscriptionText {
+    text-align: center;
+}
+.subscriptionContainer {
+    margin: 5rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.formColumn{
+    margin-left:1.5rem;
+    margin-right:1.5rem;
+}
+.button {
+    text-align: center;
+}
+.submitButton{
+    font-size: 1.5rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    border-radius: .25rem;
+}
+.inputField input {
+    font-size: 1.25rem;
+    padding: 0.5rem;
+    border-radius: .25rem;
+    border-color: gray;
+}
+.inputField {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display:flex;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+
+input[type=number] { -moz-appearance:textfield;
+}
+.invalidate {
+    border: 1px solid red !important;
+}
+.validate {
+    border: 1px solid greenyellow !important;
+}
+
+.inputMessage {
+    text-align: left;
+    font-size: .75rem;
+    color: red;
+}
+
+.validateMessage {
+    color: greenyellow !important;
+}
+
+.customTitle {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.5rem;
+    color: lightslategray;
 }
