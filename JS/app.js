@@ -1,5 +1,5 @@
+// inputs
 var inputs = document.querySelectorAll('input');
-
 var fullName = inputs[0];
 var email = inputs[1];
 var password = inputs[2];
@@ -11,10 +11,8 @@ var city = inputs[7];
 var zipCode = inputs[8];
 var idNumber = inputs[9];
 
-console.log(inputs)
-
+// input error messages
 var inputMessages = document.querySelectorAll('.inputMessage')
-
 var fullNameMessage = inputMessages[0];
 var emailMessage = inputMessages[1];
 var passwordMessage = inputMessages[2];
@@ -26,6 +24,8 @@ var cityMessage = inputMessages[7];
 var zipCodeMessage = inputMessages[8];
 var idNumberMessage = inputMessages[9];
 
+
+// focus events
 fullName.addEventListener("focus", function() {
         fullName.classList.add("focus");
         fullNameMessage.innerHTML = '';
@@ -76,7 +76,7 @@ idNumber.addEventListener("focus", function() {
         idNumberMessage.innerHTML = '';
     });
 
-//blur event
+//blur events
 
 inputs.forEach( function(input)  {
         input.addEventListener("blur",function() {
@@ -254,49 +254,7 @@ idNumber.addEventListener("blur", function() {
         }
     });
 
-function validateAll () {
-    return (validateFullName() &&
-    validateEmail() && 
-    validatePassword() &&
-    validatePasswordConfirmation() &&
-    validateAge() &&
-    validatePhone() &&
-    validateAddress() &&
-    validateCity() &&
-    validateZipCode() &&
-    validateIdNumber())
-}
-
-document.querySelector('.submitButton').addEventListener("click", function() {
-        e.preventDefault();
-
-        if (validateAll()) {
-            alert('Validations have passed! We have submitted your information. You will be hearing from us soon'
-                + 'Full name:' + fullName.value
-                + 'Email:' + email.value
-                + 'Password:' + password.value
-                + 'Age:' + age.value
-                + 'Phone:' + phone.value
-                + 'Address:' + address.value
-                + 'City:' + city.value
-                + 'Zip Code:' + zipCode.value
-                + 'Id Number:' + idNumber.value);
-        }
-        else {
-            alert('Not all validations have passed. Please check the information below:'
-                + 'Full name:' + fullName.value
-                + 'Email:' + email.value
-                + 'Password:' + password.value
-                + 'Age:' + age.value
-                + 'Phone:' + phone.value
-                + 'Address:' + address.value
-                + 'City:' + city.value
-                + 'Zip Code:' + zipCode.value
-                + 'Id Number:' + idNumber.value);
-        }
-    }
-)
-
+// input valitations
 function validateFullName() {
     var space = fullName.value.indexOf('');
     if ((fullName.value.length < 7) || (space -= 0)) {
@@ -307,16 +265,11 @@ function validateFullName() {
 
 function validateEmail() {
     var atSymbol = email.value.indexOf("@");
-    if (atSymbol < 1)
-        return false;
-
     var dot = email.value.indexOf(".");
-    if (dot <= atSymbol + 2)
-        return false;
 
-    if (dot === email.value.length - 1)
+    if (atSymbol < 1 || dot <= atSymbol + 2 || dot === email.value.length - 1 ) {
         return false;
-
+    }
     return true;
 }
 
@@ -355,8 +308,7 @@ function validatePhone() {
 
 function validateAddress() {
     var l = address.value;
-    if (l.length < 5 || l.search (/[0-9]/) < 0 || l.indexOf('') < 0 
-    || l.search(/[A-z]/)) {
+    if (l.length < 5 || l.search (/[0-9]/) < 0 || l.indexOf('') < 0  || l.search(/[A-z]/)) {
         return false;
     }
     return true;
@@ -386,3 +338,71 @@ function validateIdNumber() {
     return true;
 }
 
+function validateAll () {
+    return (validateFullName() &&
+    validateEmail() && 
+    validatePassword() &&
+    validatePasswordConfirmation() &&
+    validateAge() &&
+    validatePhone() &&
+    validateAddress() &&
+    validateCity() &&
+    validateZipCode() &&
+    validateIdNumber())
+}
+
+document.querySelector('.submitButton').addEventListener("click", function(e) {
+        e.preventDefault();
+        if (validateAll()) {
+            alert('Validations have passed! We have submitted your information. You will be hearing from us soon \n' 
+                + 'Full name:' + fullName.value + '\n'
+                + 'Email:' + email.value + '\n'
+                + 'Password:' + password.value + '\n'
+                + 'Age:' + age.value + '\n'
+                + 'Phone:' + phone.value + '\n'
+                + 'Address:' + address.value + '\n'
+                + 'City:' + city.value + '\n'
+                + 'Zip Code:' + zipCode.value + '\n'
+                + 'Id Number:' + idNumber.value);
+        }
+        else if (!validateFullName()) {
+            alert(fullNameMessage.innerHTML)
+        }
+        else if (!validateEmail()) {
+            alert (emailMessage.innerHTML)
+        }
+        else if (!validatePassword()) {
+            alert (passwordMessage.innerHTML)
+        }
+        else if (!validatePasswordConfirmation) {
+            alert (passwordConfirmationMessage.innerHTML)
+        }
+        else if (!validateAge) {
+            alert (ageMessage.innerHTML)
+        }
+        else if (!validatePhone) {
+            alert (phoneMessage.innerHTML)
+        }
+        else if (!validateAddress) {
+            alert (addressMessage.innerHTML)
+        }
+        else if (!validateCity) {
+            alert (cityMessage.innerHTML)
+        }
+        else if (!validateZipCode) {
+            alert (zipCodeMessage.innerHTML)
+        }
+        else if (!validateIdNumber) {
+            alert (idNumberMessage.innerHTML)
+        }
+    }
+)
+
+// bonus
+var bonusName = document.getElementById('hello');
+fullName.addEventListener('keydown', bonus);
+fullName.addEventListener('focus', bonus);
+function bonus() {
+	var nameValue = fullName.value;
+	bonusName.innerHTML = 'Hello, ' + nameValue;
+}
