@@ -12,7 +12,7 @@ var zipCode = inputs[8];
 var idNumber = inputs[9];
 
 // input error messages
-var inputMessages = document.querySelectorAll('.inputMessage')
+var inputMessages = document.querySelectorAll('.inputMessage');
 var fullNameMessage = inputMessages[0];
 var emailMessage = inputMessages[1];
 var passwordMessage = inputMessages[2];
@@ -354,16 +354,16 @@ function validateAll () {
 document.querySelector('.submitButton').addEventListener("click", function(e) {
         e.preventDefault();
         if (validateAll()) {
-            alert('Validations have passed! We have submitted your information. You will be hearing from us soon \n' 
-                + 'Full name:' + fullName.value + '\n'
-                + 'Email:' + email.value + '\n'
-                + 'Password:' + password.value + '\n'
-                + 'Age:' + age.value + '\n'
-                + 'Phone:' + phone.value + '\n'
-                + 'Address:' + address.value + '\n'
-                + 'City:' + city.value + '\n'
-                + 'Zip Code:' + zipCode.value + '\n'
-                + 'Id Number:' + idNumber.value);
+            alert('Validations have passed! We have submitted your information. \n You will be hearing from us soon \n' 
+                + 'Full name:' + ' ' + fullName.value + '\n'
+                + 'Email:' +  ' ' + email.value + '\n'
+                + 'Password:' +  ' ' + password.value + '\n'
+                + 'Age:' +  ' ' + age.value + '\n'
+                + 'Phone:' +  ' ' + phone.value + '\n'
+                + 'Address:' +  ' ' + address.value + '\n'
+                + 'City:' +  ' ' + city.value + '\n'
+                + 'Zip Code:' +  ' ' + zipCode.value + '\n'
+                + 'Id Number:' +  ' ' + idNumber.value);
         }
         else if (!validateFullName()) {
             alert(fullNameMessage.innerHTML)
