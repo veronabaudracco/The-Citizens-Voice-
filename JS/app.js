@@ -351,8 +351,32 @@ function validateAll () {
     validateIdNumber())
 }
 
+function handleError (response) {
+    if (response.status !== 200) {
+        throw Error(response.status);
+    }
+    return response;
+ }
+ 
+ function handledFetch (request) {
+    return fetch(request)
+      .then(handleError);
+ }
+
+var params = "https://curso-dev-2021.herokuapp.com/newsletter" + "?" + "name" + "=" + fullName.value + "&" + "email" + "=" +
+email.value + "&" + "password" + "=" + password.value + "&" + "passwordConfirmation" + "=" + passwordConfirmation.value +
+"&" + age + "=" + "age.value" + "&" + "phone" + "=" + phone.value + "&" + "address" + "=" + address.value + "&" +
+"city" + "=" + city.value + "&" + "zipCode" + "=" + zipCode.value + "&" + "idNumber" + "=" + idNumber.value;
+
+function submitServer () {
+    fetch (params) 
+    .then (response => response.json())
+    .catch (error => console.log(error));
+}
+
 document.querySelector('.submitButton').addEventListener("click", function(e) {
         e.preventDefault();
+        submitServer();
         if (validateAll()) {
             alert('Validations have passed! We have submitted your information. \n You will be hearing from us soon \n' 
                 + 'Full name:' + ' ' + fullName.value + '\n'
@@ -406,3 +430,4 @@ function bonus() {
 	var nameValue = fullName.value;
 	bonusName.innerHTML = 'Hello, ' + nameValue;
 }
+
