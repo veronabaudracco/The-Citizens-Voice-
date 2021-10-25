@@ -530,8 +530,6 @@ function showModal(title, content, buttons) {
     }
   }
 
-  
-  
   function saveOnLocalStorage(){
     localStorage.setItem('name', fullName.value)
     localStorage.setItem('email', email.value)
