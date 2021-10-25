@@ -351,43 +351,10 @@ function validateAll () {
     validateIdNumber())
 }
 
-function handleError (response) {
-    if (response.status !== 200) {
-        throw Error(response.status);
-    }
-    return response;
- }
- 
- function handledFetch (request) {
-    return fetch(request)
-      .then(handleError);
- }
-
-var params = "https://curso-dev-2021.herokuapp.com/newsletter" + "?" + "name" + "=" + fullName.value + "&" + "email" + "=" +
-email.value + "&" + "password" + "=" + password.value + "&" + "passwordConfirmation" + "=" + passwordConfirmation.value +
-"&" + age + "=" + "age.value" + "&" + "phone" + "=" + phone.value + "&" + "address" + "=" + address.value + "&" +
-"city" + "=" + city.value + "&" + "zipCode" + "=" + zipCode.value + "&" + "idNumber" + "=" + idNumber.value;
-
-function submitServer () {
-    fetch (params) 
-    .then (response => response.json())
-    .catch (error => console.log(error));
-}
-
 document.querySelector('.submitButton').addEventListener("click", function(e) {
         e.preventDefault();
-        submitServer();
         if (validateAll()) {
-            alert('Validations have passed! We have submitted your information. \n You will be hearing from us soon \n' 
-                + 'Full name:' + ' ' + fullName.value + '\n'
-                + 'Email:' +  ' ' + email.value + '\n'
-                + 'Password:' +  ' ' + password.value + '\n'
-                + 'Age:' +  ' ' + age.value + '\n'
-                + 'Phone:' +  ' ' + phone.value + '\n'
-                + 'Address:' +  ' ' + address.value + '\n'
-                + 'City:' +  ' ' + city.value + '\n'
-                + 'Zip Code:' +  ' ' + zipCode.value + '\n'
-                + 'Id Number:' +  ' ' + idNumber.value);
+            sendInformation();
         }
         else if (!validateFullName()) {
             alert(fullNameMessage.innerHTML)
@@ -431,3 +398,166 @@ function bonus() {
 	bonusName.innerHTML = 'Hello, ' + nameValue;
 }
 
+// -----------WEEK 06-------------
+
+var url = new URL('https://curso-dev-2021.herokuapp.com/newsletter');
+var params = url.searchParams;
+
+function createUrl() {
+    params.append('name', fullName.value);
+    params.append('email', email.value);
+    params.append('password', password.value);
+    params.append('passwordConfirmation', passwordConfirmation.value);
+    params.append('age', age.value);
+    params.append('phone', phone.value);
+    params.append('address', address.value);
+    params.append('city', city.value);
+    params.append('zipCode', zipCode.value);
+    params.append('idNumber', idNumber.value);
+    return url;
+    
+}
+
+function sendInformation() {
+    fetch(createUrl())
+    .then(manageResponse)
+    .then(manageData)
+    .catch(manageError);
+}
+
+function manageResponse(res){
+  return res.json();
+}
+
+function manageData(data){
+  okModal(data);
+  saveOnLocalStorage();
+  console.log(data);
+}
+
+function manageError(err){
+  errorModal(err);
+}
+
+function showModal(title, content, buttons) {
+    var modal = document.createElement("div");
+  
+    modal.classList.add("modal");
+    modal.innerHTML = `
+          <div class="innerModal">
+            <div class="headerModal">
+                  <div class="title">${title}</div>
+                  <button class="close" type="button">
+                      <span class="material-icons">close</span>
+                  </button>
+            </div>
+              <div class="content">${content}</div>
+              <div class="lowerModal"></div>
+          </div>
+      `;
+  
+    for (var button of buttons) {
+      var element = document.createElement("button");
+  
+      element.setAttribute("type", "button");
+      element.classList.add("modalButton");
+      element.textContent = button.label;
+      element.addEventListener("click", function(e) {
+        if (button.triggerClose) {
+          document.body.removeChild(modal);
+        }
+        button.onClick(modal);
+      });
+
+      modal.querySelector(".lowerModal").appendChild(element);
+    }
+    modal.querySelector(".close").addEventListener("click", function(e) {
+      document.body.removeChild(modal);
+    });
+
+    document.body.appendChild(modal);
+  }
+  
+  function okModal(data){
+      showModal('Validations have passed! We have submitted your information. \n You will be hearing from us soon \n', 
+      ` 
+      Full name: ${data.name} 
+      Email: ${data.email} 
+      Password: ${data.password} 
+      Age: ${data.age} 
+      Phone: ${data.phone} 
+      Address: ${data.address} 
+      City: ${data.city} 
+      Postal code: ${data.zipCode} 
+      Id: ${data.idNumber}
+      
+      `, [
+    {
+    label: "Great!",
+    onClick: (modal) => {
+    },
+    triggerClose: true
+    }
+    ]);
+  }
+  
+  function errorModal(err){
+  
+    if(!err){
+      showModal("Something went wrong", 
+      ` 
+      Check your personal information
+      `, [
+      {
+      label: "Ok",
+      onClick: (modal) => {
+      },
+      triggerClose: true
+      }
+      ]);
+    } else{
+      showModal("Something went wrong", 
+      ` 
+      ${err};
+      `, [
+      {
+      label: "Ok",
+      onClick: (modal) => {
+      },
+      triggerClose: true
+      }
+      ]);
+    }
+  }
+
+  
+  
+  function saveOnLocalStorage(){
+    localStorage.setItem('name', fullName.value)
+    localStorage.setItem('email', email.value)
+    localStorage.setItem('password', password.value)
+    localStorage.setItem('passwordConfirmation', passwordConfirmation.value)
+    localStorage.setItem('age', age.value)
+    localStorage.setItem('phone', phone.value)
+    localStorage.setItem('address', address.value)
+    localStorage.setItem('city', city.value)
+    localStorage.setItem('zipCode', zipCode.value)
+    localStorage.setItem('idNumber', idNumber.value)
+  }
+  
+  function showDataLocallyStored(){
+    fullName.value = localStorage.getItem('name');
+    email.value = localStorage.getItem('email');
+    password.value = localStorage.getItem('password');
+    passwordConfirmation.value = localStorage.getItem('passwordConfirmation');
+    age.value = localStorage.getItem('age');
+    phone.value = localStorage.getItem('phone');
+    address.value = localStorage.getItem('address');
+    city.value = localStorage.getItem('city');
+    zipCode.value = localStorage.getItem('zipCode');
+    idNumber.value = localStorage.getItem('idNumber');
+  }
+
+  window.onload = function() {
+    showDataLocallyStored();
+  }
