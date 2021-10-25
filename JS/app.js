@@ -400,6 +400,8 @@ function bonus() {
 
 // -----------WEEK 06-------------
 
+// url
+
 var url = new URL('https://curso-dev-2021.herokuapp.com/newsletter');
 var params = url.searchParams;
 
@@ -418,6 +420,8 @@ function createUrl() {
     
 }
 
+// send data to the server
+
 function sendInformation() {
     fetch(createUrl())
     .then(manageResponse)
@@ -425,6 +429,7 @@ function sendInformation() {
     .catch(manageError);
 }
 
+// manage responses
 function manageResponse(res){
   return res.json();
 }
@@ -439,6 +444,7 @@ function manageError(err){
   errorModal(err);
 }
 
+// modal 
 function showModal(title, content, buttons) {
     var modal = document.createElement("div");
   
@@ -479,21 +485,20 @@ function showModal(title, content, buttons) {
   }
   
   function okModal(data){
-      showModal('Validations have passed! We have submitted your information. \n You will be hearing from us soon \n', 
+      showModal('Validations have passed! We have submitted your information. You will be hearing from us soon ', 
       ` 
-      Full name: ${data.name} 
-      Email: ${data.email} 
-      Password: ${data.password} 
-      Age: ${data.age} 
-      Phone: ${data.phone} 
-      Address: ${data.address} 
-      City: ${data.city} 
-      Postal code: ${data.zipCode} 
-      Id: ${data.idNumber}
-      
-      `, [
+      Full name: ${data.name}, 
+      Email: ${data.email}, 
+      Password: ${data.password}, 
+      Age: ${data.age}, 
+      Phone: ${data.phone}, 
+      Address: ${data.address}, 
+      City: ${data.city}, 
+      Postal code: ${data.zipCode},
+      Id: ${data.idNumber} 
+      ` , [
     {
-    label: "Great!",
+    label: "Done",
     onClick: (modal) => {
     },
     triggerClose: true
@@ -530,6 +535,8 @@ function showModal(title, content, buttons) {
     }
   }
 
+  //save data on local storage
+
   function saveOnLocalStorage(){
     localStorage.setItem('name', fullName.value)
     localStorage.setItem('email', email.value)
@@ -558,4 +565,6 @@ function showModal(title, content, buttons) {
 
   window.onload = function() {
     showDataLocallyStored();
+    var titulo = document.getElementById('hello');
+    titulo.innerHTML = "Hello," + ' '+ fullName.value;
   }
